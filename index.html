@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industrious Ideas — Marketing strategy + AI</title>
+<meta name="description" content="The marketing tools and strategies of the world's most beloved brands, brought to founders and growth-stage teams. Now powered by AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1E1E1E; --ink-soft:#545454; --grey:#737373;
+    --cream:#FFF7EF; --cream-deep:#FFF2E9; --bone:#EFEEE7; --white:#FEFEFE;
+    --line:#EAE4DC; --raspberry:#E30A5C; --yellow:#FDF9B4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Sora',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.5}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+  .btn{display:inline-block;border-radius:9px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:14px 26px;transition:transform .15s ease}
+  .btn:hover{transform:scale(1.03)}
+  .btn-rasp{background:var(--raspberry);color:#fff}
+  .btn-cream{background:var(--cream-deep);color:var(--raspberry)}
+  .link-cap{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;letter-spacing:.02em}
+  .logo small{font-weight:500;font-size:12px;letter-spacing:.16em;color:var(--grey)}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a.navlink{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+  .nav-links a.navlink:hover{opacity:.6}
+  /* hero */
+  .hero{background:var(--cream)}
+  h1{font-size:clamp(40px,6vw,64px);font-weight:800;line-height:1.03;letter-spacing:-.025em;max-width:14ch;margin-top:16px}
+  .hl{position:relative;white-space:nowrap}
+  .hl span{position:relative;z-index:1}
+  .hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:5px;height:15px;background:var(--yellow);border-radius:3px;z-index:0}
+  .sub{font-size:17px;line-height:1.65;color:var(--ink-soft);max-width:52ch;margin-top:20px}
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:30px}
+  /* logo strip */
+  .logostrip{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .logostrip .wrap{text-align:center;padding-top:28px;padding-bottom:28px}
+  .logolabel{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+  .logos2{font-size:16px;font-weight:600;letter-spacing:.01em;color:var(--ink);display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px}
+  /* sections */
+  section .wrap{padding-top:64px;padding-bottom:64px}
+  .work{display:grid;gap:40px;grid-template-columns:.85fr 1.15fr}
+  .work h2{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.05;max-width:12ch;margin-top:12px}
+  .work p{font-size:15px;color:var(--ink-soft);max-width:36ch;margin-top:14px}
+  .caps{align-self:center}
+  .cap{display:flex;align-items:center;justify-content:space-between;padding:16px 0;font-size:15px;font-weight:600;border-top:1px solid var(--line)}
+  .cap:first-child{border-top:none}
+  .cap .plus{color:var(--raspberry);font-weight:700}
+  .services{background:var(--bone)}
+  .services h2{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:12px}
+  .cards{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);margin-top:32px}
+  .card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
+  .card h3{font-size:15px;font-weight:700;line-height:1.25;max-width:16ch}
+  .card p{font-size:12.5px;line-height:1.55;color:var(--ink-soft);margin-top:8px;flex:1}
+  .card .more{margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .pill{position:absolute;top:14px;right:14px;background:var(--yellow);color:#7A6A00;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
+  /* cta band */
+  .ctaband{background:var(--raspberry)}
+  .ctaband .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+  .ctaband h2{font-size:30px;font-weight:800;line-height:1.1;letter-spacing:-.02em;color:var(--cream-deep);max-width:18ch}
+  .ctaband p{font-size:15px;color:rgba(255,242,233,.9);max-width:42ch;margin-top:12px}
+  /* footer */
+  footer{background:var(--ink)}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:24px;padding-bottom:24px}
+  footer span{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,242,233,.8)}
+  @media(max-width:720px){
+    .work{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr}
+    .logos2{font-size:14px}
+  }
+  @media(max-width:480px){.cards{grid-template-columns:1fr}.nav-links a.navlink{display:none}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="/">
+        <svg viewBox="0 0 90 100" width="26" height="29" aria-hidden="true"><circle cx="22" cy="20" r="9" fill="#1E1E1E"/><rect x="13" y="34" width="18" height="52" rx="3" fill="#1E1E1E"/><rect x="59" y="14" width="18" height="52" rx="3" fill="#1E1E1E"/><circle cx="68" cy="80" r="9" fill="#1E1E1E"/></svg>
+        INDUSTRIOUS <small>IDEAS</small>
+      </a>
+      <div class="nav-links">
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink" href="/services">Services</a>
+        <a class="navlink" href="/about">About</a>
+        <a class="btn btn-rasp" href="/contact" style="padding:9px 16px;font-size:11px">Book intro</a>
+      </div>
+    </nav>
+    <div style="padding:24px 0 80px">
+      <div class="eyebrow" style="color:var(--raspberry)">Marketing strategy + AI</div>
+      <h1>Ideas designed for <span class="hl"><span>impact</span></span>.</h1>
+      <p class="sub">The marketing tools and strategies of the world&rsquo;s most beloved brands, brought to founders and growth-stage teams. Now powered by AI.</p>
+      <div class="cta-row">
+        <a class="btn btn-rasp" href="/contact">Book a working session</a>
+        <a class="link-cap" href="/services">See services &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="logostrip">
+  <div class="wrap">
+    <span class="logolabel">Two decades across the world&rsquo;s most beloved brands</span>
+    <div class="logos2"><span>Google</span><span>Nest</span><span>One Medical</span><span>Peloton</span><span>Pinterest</span><span>tonies</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap work">
+    <div>
+      <div class="eyebrow" style="color:var(--ink)">The work we do</div>
+      <h2>Strategy, built and shipped.</h2>
+      <p>For start-ups, growth-stage businesses, entrepreneurs, and corporate teams.</p>
+    </div>
+    <div class="caps">
+      <div class="cap"><span>AI Workflow Implementation</span><span class="plus">+</span></div>
+      <div class="cap"><span>Brand Strategy</span><span class="plus">+</span></div>
+      <div class="cap"><span>Ideal Customer Profile Development</span><span class="plus">+</span></div>
+      <div class="cap"><span>Go-to-Market Planning</span><span class="plus">+</span></div>
+      <div class="cap"><span>Creative Development</span><span class="plus">+</span></div>
+      <div class="cap"><span>Business Strategy &amp; Marketing Advisory</span><span class="plus">+</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--ink)">Services</div>
+    <h2>How we work together.</h2>
+    <div class="cards">
+      <div class="card" style="border-top:3px solid var(--raspberry)">
+        <span class="pill">New</span>
+        <h3>AI Marketing Implementation</h3>
+        <p>Brand voice, prompting systems, and golden-path workflow builds your team owns.</p>
+        <span class="more" style="color:var(--raspberry)">Learn more &rarr;</span>
+      </div>
+      <div class="card" style="border-top:3px solid var(--ink)">
+        <h3>Brand Boost&trade;</h3>
+        <p>Positioning, messaging, and go-to-market in a focused sprint.</p>
+        <span class="more" style="color:var(--ink)">Learn more &rarr;</span>
+      </div>
+      <div class="card" style="border-top:3px solid var(--ink)">
+        <h3>Power Hours&trade;</h3>
+        <p>On-demand strategy intensives. Bring a problem, leave with a plan.</p>
+        <span class="more" style="color:var(--ink)">Learn more &rarr;</span>
+      </div>
+      <div class="card" style="border-top:3px solid var(--grey)">
+        <h3>Marketing Leadership</h3>
+        <p>Fractional CMO and demand-engine builds for growth-stage teams.</p>
+        <span class="more" style="color:var(--ink)">Inquire &rarr;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ctaband">
+  <div class="wrap">
+    <div>
+      <h2>Let&rsquo;s design something with impact.</h2>
+      <p>A 30-minute working session. Bring a challenge, leave with a plan.</p>
+    </div>
+    <a class="btn btn-cream" href="/contact">Book a working session</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <svg viewBox="0 0 90 100" width="20" height="22" aria-hidden="true"><circle cx="22" cy="20" r="9" fill="#FFF2E9"/><rect x="13" y="34" width="18" height="52" rx="3" fill="#FFF2E9"/><rect x="59" y="14" width="18" height="52" rx="3" fill="#FFF2E9"/><circle cx="68" cy="80" r="9" fill="#FFF2E9"/></svg>
+    <span>&copy; Industrious Ideas, LLC 2026</span>
+    <svg viewBox="0 0 90 100" width="20" height="22" aria-hidden="true"><circle cx="22" cy="20" r="9" fill="#FFF2E9"/><rect x="13" y="34" width="18" height="52" rx="3" fill="#FFF2E9"/><rect x="59" y="14" width="18" height="52" rx="3" fill="#FFF2E9"/><circle cx="68" cy="80" r="9" fill="#FFF2E9"/></svg>
+  </div>
+</footer>
+
+</body>
+</html>
