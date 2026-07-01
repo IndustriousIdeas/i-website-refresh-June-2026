@@ -1,0 +1,141 @@
+/* Industrious Ideas — shared styles
+   Brand System v1: raspberry / cream / yellow / charcoal, Sora */
+
+:root{
+  --ink:#1E1E1E; --ink-soft:#545454; --grey:#737373;
+  --cream:#FFF7EF; --cream-deep:#FFF2E9; --bone:#EFEEE7; --white:#FEFEFE;
+  --line:#EAE4DC; --raspberry:#E30A5C; --yellow:#FDF9B4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Sora',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+
+/* buttons + caps */
+.btn{display:inline-block;border-radius:9px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:14px 26px;transition:transform .15s ease;cursor:pointer;border:none}
+.btn:hover{transform:scale(1.03)}
+.btn-rasp{background:var(--raspberry);color:#fff}
+.btn-cream{background:var(--cream-deep);color:var(--raspberry)}
+.btn-ink{background:var(--ink);color:var(--cream-deep)}
+.link-cap{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;letter-spacing:.02em}
+.logo small{font-weight:500;font-size:12px;letter-spacing:.16em;color:var(--grey)}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a.navlink{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.nav-links a.navlink:hover{opacity:.6}
+.nav-links a.navlink.active{color:var(--raspberry)}
+
+/* hero */
+.hero{background:var(--cream)}
+h1{font-size:clamp(40px,6vw,64px);font-weight:800;line-height:1.03;letter-spacing:-.025em;max-width:14ch;margin-top:16px}
+.hl{position:relative;white-space:nowrap}
+.hl span{position:relative;z-index:1}
+.hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:5px;height:15px;background:var(--yellow);border-radius:3px;z-index:0}
+.sub{font-size:17px;line-height:1.65;color:var(--ink-soft);max-width:52ch;margin-top:20px}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:30px}
+
+/* page header (interior pages) */
+.pagehead{background:var(--cream)}
+.pagehead .wrap{padding-top:24px;padding-bottom:72px}
+.pagehead h1{font-size:clamp(34px,5vw,52px);max-width:18ch}
+.pagehead .sub{margin-top:18px}
+
+/* logo strip */
+.logostrip{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.logostrip .wrap{text-align:center;padding-top:28px;padding-bottom:28px}
+.logolabel{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+.logos2{font-size:16px;font-weight:600;letter-spacing:.01em;color:var(--ink);display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px}
+
+/* sections */
+section .wrap{padding-top:64px;padding-bottom:64px}
+.work{display:grid;gap:40px;grid-template-columns:.85fr 1.15fr}
+.work h2{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.05;max-width:12ch;margin-top:12px}
+.work p{font-size:15px;color:var(--ink-soft);max-width:36ch;margin-top:14px}
+.caps{align-self:center}
+.cap{display:flex;align-items:center;justify-content:space-between;padding:16px 0;font-size:15px;font-weight:600;border-top:1px solid var(--line)}
+.cap:first-child{border-top:none}
+.cap .plus{color:var(--raspberry);font-weight:700}
+
+/* service cards */
+.services{background:var(--bone)}
+.services h2{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:12px}
+.cards{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);margin-top:32px}
+.card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;transition:transform .15s ease,box-shadow .15s ease}
+a.card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(30,30,30,.08)}
+.card h3{font-size:15px;font-weight:700;line-height:1.25;max-width:16ch}
+.card p{font-size:12.5px;line-height:1.55;color:var(--ink-soft);margin-top:8px;flex:1}
+.card .more{margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.pill{position:absolute;top:14px;right:14px;background:var(--yellow);color:#7A6A00;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
+
+/* service detail blocks (services page) */
+.detail{border-top:1px solid var(--line)}
+.detail:first-of-type{border-top:none}
+.detail .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;padding-top:56px;padding-bottom:56px}
+.detail .tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--raspberry)}
+.detail h2{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.08;margin-top:12px;max-width:14ch}
+.detail .lead{font-size:16px;color:var(--ink-soft);line-height:1.6;margin-top:16px;max-width:46ch}
+.detail .body p{font-size:15px;color:var(--ink-soft);line-height:1.65;margin-bottom:14px;max-width:54ch}
+.detail .body strong{color:var(--ink)}
+
+/* phase list */
+.phases{margin-top:8px}
+.phase{display:flex;gap:18px;padding:18px 0;border-top:1px solid var(--line)}
+.phase:first-child{border-top:none}
+.phase .num{flex:none;width:30px;font-size:13px;font-weight:800;color:var(--raspberry);letter-spacing:.04em}
+.phase h4{font-size:15px;font-weight:700}
+.phase p{font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin-top:5px;max-width:52ch}
+.phase .artifact{display:inline-block;margin-top:7px;font-size:11px;font-weight:600;color:var(--ink);background:var(--cream-deep);border-radius:6px;padding:3px 9px}
+
+/* about */
+.prose .wrap{max-width:760px}
+.prose h2{font-size:24px;font-weight:800;letter-spacing:-.01em;margin:36px 0 12px}
+.prose p{font-size:16px;color:var(--ink-soft);line-height:1.7;margin-bottom:16px}
+.prose p strong{color:var(--ink)}
+.proofgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
+.proof{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.proof .stat{font-size:26px;font-weight:800;color:var(--raspberry);letter-spacing:-.01em}
+.proof .desc{font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:6px}
+
+/* contact form */
+.formwrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:9px;padding:12px 14px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--raspberry)}
+.field textarea{min-height:130px;resize:vertical}
+.consent{display:flex;align-items:flex-start;gap:9px;margin:4px 0 18px;font-size:13px;color:var(--ink-soft);cursor:pointer}
+.consent input{margin-top:2px;accent-color:var(--raspberry)}
+.contact-aside h3{font-size:14px;font-weight:700;margin-bottom:6px}
+.contact-aside p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:18px}
+.contact-aside a.line{color:var(--raspberry);font-weight:600}
+.formnote{font-size:12px;color:var(--grey);margin-top:12px}
+
+/* cta band */
+.ctaband{background:var(--raspberry)}
+.ctaband .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:64px 24px}
+.ctaband h2{font-size:30px;font-weight:800;line-height:1.1;letter-spacing:-.02em;color:var(--cream-deep);max-width:18ch}
+.ctaband p{font-size:15px;color:rgba(255,242,233,.9);max-width:42ch;margin-top:12px}
+
+/* footer */
+footer{background:var(--ink)}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;padding-bottom:24px;flex-wrap:wrap}
+footer span{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,242,233,.8)}
+footer .foot-links{display:flex;gap:20px}
+footer .foot-links a{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,242,233,.55)}
+footer .foot-links a:hover{color:rgba(255,242,233,.9)}
+
+@media(max-width:820px){
+  .work{grid-template-columns:1fr}
+  .detail .wrap{grid-template-columns:1fr;gap:20px}
+  .formwrap{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:720px){
+  .cards{grid-template-columns:1fr}
+  .logos2{font-size:14px}
+  .proofgrid{grid-template-columns:1fr}
+}
+@media(max-width:480px){.cards{grid-template-columns:1fr}.nav-links a.navlink{display:none}}

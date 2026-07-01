@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact &middot; Industrious Ideas</title>
+<meta name="description" content="Book a 30-minute working session with Industrious Ideas. Bring a challenge, leave with a plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="pagehead">
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="/">
+        <svg viewBox="0 0 90 100" width="26" height="29" aria-hidden="true"><circle cx="22" cy="20" r="9" fill="#1E1E1E"/><rect x="13" y="34" width="18" height="52" rx="3" fill="#1E1E1E"/><rect x="59" y="14" width="18" height="52" rx="3" fill="#1E1E1E"/><circle cx="68" cy="80" r="9" fill="#1E1E1E"/></svg>
+        INDUSTRIOUS <small>IDEAS</small>
+      </a>
+      <div class="nav-links">
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink" href="/services">Services</a>
+        <a class="navlink" href="/about">About</a>
+        <a class="btn btn-rasp" href="/contact" style="padding:9px 16px;font-size:11px">Book intro</a>
+      </div>
+    </nav>
+    <div style="padding-top:24px">
+      <div class="eyebrow" style="color:var(--raspberry)">Contact</div>
+      <h1>Bring a challenge, leave with a plan.</h1>
+      <p class="sub">Tell me what you&rsquo;re working on. I&rsquo;ll come back to book a 30-minute working session, usually within a day.</p>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="formwrap">
+      <!-- Contact form wired to Klaviyo client API (public key RuBkDm). Each submit fires a "Submitted Contact Form" event and creates/updates the profile. -->
+      <form id="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="field">
+          <label for="service">What are you interested in?</label>
+          <select id="service" name="service">
+            <option>AI Marketing Implementation</option>
+            <option>Brand &amp; GTM Strategy</option>
+            <option>Fractional Marketing Leadership</option>
+            <option>Not sure yet &middot; let&rsquo;s talk</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">What are you working on?</label>
+          <textarea id="message" name="message" placeholder="A sentence or two on the challenge." required></textarea>
+        </div>
+        <label class="consent"><input type="checkbox" id="optin" name="optin"> <span>Keep me posted on Industrious Ideas.</span></label>
+        <button type="submit" class="btn btn-rasp" id="submitbtn">Send &amp; request a session</button>
+        <p class="formnote" id="formnote">Your note reaches me directly. No spam, ever.</p>
+      </form>
+
+      <div class="contact-aside">
+        <h3>Prefer email?</h3>
+        <p>Reach me directly at <a class="line" href="mailto:katy@industriousideas.com">katy@industriousideas.com</a>.</p>
+        <h3>Find me</h3>
+        <p><a class="line" href="https://www.linkedin.com/in/katyromero" target="_blank" rel="noopener">LinkedIn &rarr;</a></p>
+        <h3>Who I work with</h3>
+        <p>Founders, growth-stage teams, and corporate marketing groups who need senior marketing that drives revenue and a clear-eyed plan for where AI actually helps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <svg viewBox="0 0 90 100" width="20" height="22" aria-hidden="true"><circle cx="22" cy="20" r="9" fill="#FFF2E9"/><rect x="13" y="34" width="18" height="52" rx="3" fill="#FFF2E9"/><rect x="59" y="14" width="18" height="52" rx="3" fill="#FFF2E9"/><circle cx="68" cy="80" r="9" fill="#FFF2E9"/></svg>
+    <span>&copy; Industrious Ideas, LLC 2026</span>
+    <div class="foot-links">
+      <a href="/services">Services</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KLAVIYO_PUBLIC_KEY = "RuBkDm";       // Industrious Ideas LLC public (client-side) key
+  var EMAIL_LIST_ID = "ViwnCG";            // "Email List" (used only when opt-in is checked)
+  var REVISION = "2024-10-15";
+  var form = document.getElementById("contact-form");
+  var note = document.getElementById("formnote");
+  var btn = document.getElementById("submitbtn");
+
+  function setNote(msg, ok){
+    note.textContent = msg;
+    note.style.color = ok === true ? "#1E1E1E" : (ok === false ? "#E30A5C" : "#737373");
+  }
+
+  function trackEvent(data){
+    return fetch("https://a.klaviyo.com/client/events/?company_id=" + KLAVIYO_PUBLIC_KEY, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "revision": REVISION },
+      body: JSON.stringify({
+        data: {
+          type: "event",
+          attributes: {
+            properties: {
+              company: data.company,
+              service_interest: data.service,
+              message: data.message,
+              source: "industriousideas.com contact form"
+            },
+            metric: { data: { type: "metric", attributes: { name: "Submitted Contact Form" } } },
+            profile: { data: { type: "profile", attributes: { email: data.email, first_name: data.name } } }
+          }
+        }
+      })
+    });
+  }
+
+  function subscribe(data){
+    return fetch("https://a.klaviyo.com/client/subscriptions/?company_id=" + KLAVIYO_PUBLIC_KEY, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "revision": REVISION },
+      body: JSON.stringify({
+        data: {
+          type: "subscription",
+          attributes: {
+            custom_source: "Website contact form",
+            profile: { data: { type: "profile", attributes: {
+              email: data.email,
+              first_name: data.name
+            } } }
+          },
+          relationships: { list: { data: { type: "list", id: EMAIL_LIST_ID } } }
+        }
+      })
+    });
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var data = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      company: form.company.value.trim(),
+      service: form.service.value,
+      message: form.message.value.trim(),
+      optin: form.optin.checked
+    };
+    if(!data.name || !data.email || !data.message){
+      setNote("Please add your name, email, and a quick note.", false);
+      return;
+    }
+    btn.disabled = true;
+    setNote("Sending…", null);
+
+    var jobs = [trackEvent(data)];
+    if(data.optin){ jobs.push(subscribe(data)); }
+
+    Promise.all(jobs).then(function(responses){
+      var ok = responses.every(function(r){ return r.ok; });
+      if(ok){
+        form.reset();
+        setNote("Thank you. Your note is in. I’ll be in touch within a day.", true);
+        btn.textContent = "Sent ✓";
+      } else {
+        throw new Error("Klaviyo returned a non-OK status");
+      }
+    }).catch(function(){
+      setNote("Something went wrong. Please email me directly at katy@industriousideas.com.", false);
+      btn.disabled = false;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
