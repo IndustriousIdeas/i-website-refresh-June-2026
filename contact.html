@@ -89,12 +89,16 @@
       <a href="/services">Services</a>
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
       <a href="#" onclick="iiCookiePreferences();return false;">Cookie preferences</a>
     </div>
   </div>
 </footer>
 
 <script>
+// Email marketing consent below is scoped entirely to the "Keep me posted" checkbox
+// and this form's submission — independent of the cookie banner's tracking consent
+// (see cookie-consent.js), which governs Klaviyo's onsite analytics script only.
 (function(){
   var KLAVIYO_PUBLIC_KEY = "RuBkDm";       // Industrious Ideas LLC public (client-side) key
   var EMAIL_LIST_ID = "ViwnCG";            // "Email List" (used only when opt-in is checked)

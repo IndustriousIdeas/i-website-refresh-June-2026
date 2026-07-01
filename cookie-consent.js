@@ -1,5 +1,8 @@
 (function () {
-  var CONSENT_KEY = "ii_cookie_consent_v1";
+  // This banner controls tracking cookies only (Klaviyo's onsite analytics script).
+  // It has no connection to email marketing consent, which is granted solely via
+  // the explicit opt-in checkbox on the contact form.
+  var CONSENT_KEY = "ii_cookie_consent_v2";
   var KLAVIYO_PUBLIC_KEY = "RuBkDm";
 
   function getConsent() {
@@ -10,8 +13,8 @@
     }
   }
 
-  function setConsent(marketing) {
-    var record = { necessary: true, marketing: marketing, ts: new Date().toISOString() };
+  function setConsent(analytics) {
+    var record = { necessary: true, analytics: analytics, ts: new Date().toISOString() };
     try {
       localStorage.setItem(CONSENT_KEY, JSON.stringify(record));
     } catch (e) {}
@@ -19,7 +22,7 @@
   }
 
   function applyConsent(record) {
-    if (record && record.marketing) {
+    if (record && record.analytics) {
       loadKlaviyoOnsite();
     }
   }
@@ -52,10 +55,11 @@
     wrap.innerHTML =
       '<div style="max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between;">' +
       '<p style="margin:0;font-size:13px;line-height:1.6;color:rgba(255,242,233,.85);max-width:56ch;flex:1;min-width:240px;">' +
-      "We use cookies to keep this site running smoothly. With your OK, we also use Klaviyo to remember your visit and personalize follow-ups. Never sold to anyone else." +
+      "This site uses necessary cookies to function. With your consent, it also uses analytics cookies (via Klaviyo) to understand how visitors use the site. Analytics cookies stay off until you opt in. " +
+      '<a href="/privacy" style="color:#FFF2E9;text-decoration:underline;">Read our cookie policy</a>.' +
       "</p>" +
       '<div style="display:flex;gap:10px;flex-wrap:wrap;">' +
-      '<button id="ii-cookie-necessary" type="button" style="background:transparent;border:1px solid rgba(255,242,233,.4);color:#FFF2E9;border-radius:9px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:11px 18px;cursor:pointer;">Necessary only</button>' +
+      '<button id="ii-cookie-necessary" type="button" style="background:transparent;border:1px solid rgba(255,242,233,.4);color:#FFF2E9;border-radius:9px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:11px 18px;cursor:pointer;">Reject non-essential</button>' +
       '<button id="ii-cookie-accept" type="button" style="background:#E30A5C;border:none;color:#fff;border-radius:9px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:11px 18px;cursor:pointer;">Accept all</button>' +
       "</div>" +
       "</div>";
