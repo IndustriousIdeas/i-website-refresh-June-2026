@@ -90,10 +90,20 @@
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
       <a href="/privacy">Privacy</a>
-      <a href="#" onclick="iiCookiePreferences();return false;">Cookie preferences</a>
+      <a href="#" onclick="iiCookiePreferences();return false;">Cookie notice</a>
     </div>
   </div>
 </footer>
+
+<div class="modal-overlay" id="thankyou-modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button type="button" class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <div class="eyebrow" style="color:var(--raspberry)">Message sent</div>
+    <h3 id="modal-title">Thank you for your submission.</h3>
+    <p>Your note is in my inbox. I&rsquo;ll be in touch within a day to find a time to talk.</p>
+    <button type="button" class="btn btn-rasp" id="modal-ok">Close</button>
+  </div>
+</div>
 
 <script>
 // Email marketing consent below is scoped entirely to the "Keep me posted" checkbox
@@ -106,11 +116,29 @@
   var form = document.getElementById("contact-form");
   var note = document.getElementById("formnote");
   var btn = document.getElementById("submitbtn");
+  var modal = document.getElementById("thankyou-modal");
+  var modalClose = document.getElementById("modal-close");
+  var modalOk = document.getElementById("modal-ok");
 
   function setNote(msg, ok){
     note.textContent = msg;
     note.style.color = ok === true ? "#1E1E1E" : (ok === false ? "#E30A5C" : "#737373");
   }
+
+  function showModal(){
+    modal.hidden = false;
+  }
+  function hideModal(){
+    modal.hidden = true;
+  }
+  modalClose.addEventListener("click", hideModal);
+  modalOk.addEventListener("click", hideModal);
+  modal.addEventListener("click", function(e){
+    if(e.target === modal){ hideModal(); }
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && !modal.hidden){ hideModal(); }
+  });
 
   function trackEvent(data){
     return fetch("https://a.klaviyo.com/client/events/?company_id=" + KLAVIYO_PUBLIC_KEY, {
@@ -178,8 +206,10 @@
       var ok = responses.every(function(r){ return r.ok; });
       if(ok){
         form.reset();
-        setNote("Thank you. Your note is in. I’ll be in touch within a day.", true);
-        btn.textContent = "Sent ✓";
+        setNote("Your note reaches me directly. No spam, ever.", null);
+        btn.textContent = "Send & request a session";
+        btn.disabled = false;
+        showModal();
       } else {
         throw new Error("Klaviyo returned a non-OK status");
       }

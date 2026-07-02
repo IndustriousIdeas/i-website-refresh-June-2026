@@ -139,3 +139,12 @@ footer .foot-links a:hover{color:rgba(255,242,233,.9)}
   .proofgrid{grid-template-columns:1fr}
 }
 @media(max-width:480px){.cards{grid-template-columns:1fr}.nav-links a.navlink{display:none}}
+
+/* modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(30,30,30,.55);display:flex;align-items:center;justify-content:center;z-index:10000;padding:24px}
+.modal-overlay[hidden]{display:none}
+.modal-card{background:#fff;border-radius:14px;padding:36px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(30,30,30,.25)}
+.modal-card h3{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-top:10px;color:var(--ink)}
+.modal-card p{font-size:15px;color:var(--ink-soft);line-height:1.6;margin-top:12px;margin-bottom:24px}
+.modal-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:22px;line-height:1;color:var(--grey);cursor:pointer;padding:4px}
+.modal-close:hover{color:var(--ink)}
